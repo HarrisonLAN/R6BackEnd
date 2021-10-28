@@ -5,7 +5,7 @@ const asyncHandler = require('../middlewares/err.handler')
 
 const router = express.Router();
 
-router.get('/name/:name', asyncHandler(controller.findPlayerByName));
+router.get('/name/:username', asyncHandler(controller.findPlayerByName));
 router.get('/id/:id', asyncHandler(controller.findPlayerByID));
 
 module.exports = router;

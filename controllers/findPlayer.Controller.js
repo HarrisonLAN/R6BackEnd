@@ -4,7 +4,7 @@ const controller = {};
 controller.findPlayerByID = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const player = await repository.getPlayerByID(id);
+        const { 0: player } = await repository.getPlayerByID(id);
         if (!player) {
             return res.status(400).json({ sucess: false });
         }
@@ -16,8 +16,9 @@ controller.findPlayerByID = async (req, res, next) => {
 
 controller.findPlayerByName = async (req, res, next) => {
     try {
-        const { platform, username } = req.params;
-        const player = await repository.getPlayerByName(platform,username);
+        const { username } = req.params;
+        const { platform } = req.body;
+        const { 0: player } = await repository.getPlayerByName(platform, username);
         if (!player) {
             return res.status(400).json({ sucess: false });
         }
