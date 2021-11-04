@@ -24,6 +24,5 @@ repository.getRanks = (id) => {
 };
 repository.getStats = (id) => {
     return r6api.getStats("all", id);
-
 };
 module.exports = repository;
