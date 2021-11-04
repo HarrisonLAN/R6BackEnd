@@ -2,5 +2,5 @@
 .env.example
 .env.local
 .env.staging
-
+redis/
 **/node_modules
