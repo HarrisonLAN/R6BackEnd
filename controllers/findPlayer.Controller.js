@@ -28,10 +28,19 @@ controller.findPlayerByName = async (req, res, next) => {
     }
 };
 
-controller.getDescMovieRatings = async (req, res) => {
-    const movies = await repository.sortOnRating();
-    res.json({ success: true, movies });
-};
+controller.getPlayerDetails = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { platform } = req.body;
+        const { 0: player } = await repository.getRanks(id, platform);
+        if (!player) {
+            return res.status(400).json({ sucess: false });
 
+        }
+        res.status(200).json({ success: true, player });
+    } catch (err) {
+        next(err);
+    }
+};
 
 module.exports = controller;

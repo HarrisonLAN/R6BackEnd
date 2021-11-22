@@ -11,7 +11,7 @@ repository.getPlayerByName = (platform, username) => {
 };
 repository.getProgression = (id) => {
     return r6api.getPlayerByName("all", id);
-
+n
 };
 repository.getPlaytime = (player) => {
     console.log(player.id)
