@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.get('/name/:username', asyncHandler(controller.findPlayerByName));
 router.get('/id/:id', asyncHandler(controller.findPlayerByID));
-router.get('stats/:id',asyncHandler(controller.getPlayerDetails));
+router.get('/stats/:id',asyncHandler(controller.getPlayerDetails));
 
 module.exports = router;
